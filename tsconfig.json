@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "noImplicitAny": false,
+    "resolveJsonModule": true,
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ],
+    "types": [
+      "vite/client",
+      "jest",
+      "@intlify/vite-plugin-vue-i18n/client"
+    ]
+  },
+  "include": [
+    "src/render/**/*.ts",
+    "src/render/**/*.tsx",
+    "src/render/**/*.vue",
+    "src/shared/**/*.ts",
+    "src/define.ts",
+    "src/env.d.ts",
+    "tests/render/**/*.ts",
+    "tests/render/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
