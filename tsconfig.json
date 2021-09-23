@@ -27,14 +27,12 @@
     ]
   },
   "include": [
-    "src/render/**/*.ts",
-    "src/render/**/*.tsx",
-    "src/render/**/*.vue",
-    "src/shared/**/*.ts",
-    "src/define.ts",
-    "src/env.d.ts",
-    "tests/render/**/*.ts",
-    "tests/render/**/*.tsx"
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
+    "build/*.ts"
   ],
   "exclude": [
     "node_modules"
