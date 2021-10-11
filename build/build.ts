@@ -1,4 +1,4 @@
-import moduleResolves from 'build/chunk'
+import moduleResolves from './chunk'
 
 const outputDir = 'dist'
 

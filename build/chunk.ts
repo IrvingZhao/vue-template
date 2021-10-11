@@ -16,7 +16,7 @@ moduleResolves.push({
   executor: 'vendor'
 })
 
-// 异步引入组件配置信息
+// 异步引入组件配置信息，src/module/check/a.vue => module/check
 moduleResolves.push({
   pattern: /\/src\/([^/])*\/*/,
   executor(id) {
