@@ -1,4 +1,4 @@
-import { nextTick, App } from 'vue'
+import { nextTick } from 'vue'
 import { createRouter, Router, RouteRecordRaw, createMemoryHistory, createWebHistory, createWebHashHistory } from 'vue-router'
 
 const methodMap = {
@@ -37,7 +37,7 @@ function scrollBehaviorFunc(to, from, scroll) {
   }
 }
 
-function initRouter(option?: RouteOption): Router {
+export default function initRouter(option?: RouteOption): Router {
   const realOption = option || {
     routes: [],
     base: '/',
@@ -51,11 +51,4 @@ function initRouter(option?: RouteOption): Router {
     history,
     scrollBehavior
   })
-}
-
-export default {
-  install(app: App, option: RouteOption) {
-    const router = initRouter(option)
-    app.use(router)
-  }
 }

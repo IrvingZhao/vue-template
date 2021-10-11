@@ -1,6 +1,6 @@
 import { App } from 'vue'
-import I18nConfig from './I18nConfig'
-import RouterConfig, { RouteOption } from './RouterConfig'
+import createI18n from './I18nConfig'
+import createRouter, { RouteOption } from './RouterConfig'
 
 export interface ConfigOptions {
   router?: RouteOption
@@ -14,8 +14,9 @@ class Config {
   }
 
   public install(app: App) {
-    app.use(I18nConfig)
-    app.use(RouterConfig, this.options.router)
+    const i18n = createI18n()
+    const route = createRouter(this.options.router)
+    app.use(i18n).use(route)
   }
 }
 
