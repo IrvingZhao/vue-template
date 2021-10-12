@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import app from './app'
-import { createConfig, ConfigOptions } from './config'
+import { createConfig, ConfigOptions, mapState } from './config'
 
 export default {
   createApp(options: ConfigOptions) {
@@ -10,3 +10,5 @@ export default {
     return ins
   }
 }
+
+export { mapState }

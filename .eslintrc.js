@@ -31,6 +31,7 @@ module.exports = {
   },
   settings: {},
   globals: {
-    EventListenerOrEventListenerObject: true
+    EventListenerOrEventListenerObject: true,
+    StoreRootState: true
   }
 }
