@@ -16,6 +16,19 @@ moduleResolves.push({
   executor: 'vendor'
 })
 
+// element-plus
+moduleResolves.push(
+  {
+    pattern: /\/node_modules\/element-plus/,
+    executor: 'element-plus'
+  },
+  {
+    pattern: /\/theme\//,
+    executor: 'element-plus'
+  }
+)
+
+// 放在最后
 // 异步引入组件配置信息，src/module/check/a.vue => module/check
 moduleResolves.push({
   pattern: /\/src\/([^/])*\/*/,

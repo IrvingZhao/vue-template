@@ -5,7 +5,8 @@
     "prepare": "husky install",
     "dev": "vite",
     "build": "yarn run build:style && vue-tsc --noEmit && vite build",
-    "build:style": "rimraf ./theme/lib && gulp -f ./theme/gulpfile.js build"
+    "build:style": "rimraf ./theme/lib && gulp -f ./theme/gulpfile.js build",
+    "build:vue": "vue-tsc --noEmit && vite build"
   },
   "dependencies": {
     "element-plus": "^1.1.0-beta.20",
