@@ -8,6 +8,6 @@ export default [
   vueJsx(),
   vueI18n({
     compositionOnly: true,
-    include: resolve(__dirname, './src/**/locales/**')
+    include: resolve(__dirname, '../', './src/**/locales/**')
   })
 ]
