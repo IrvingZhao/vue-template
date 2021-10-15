@@ -1,0 +1,14 @@
+.pj-check-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .input-area {
+    flex: 1;
+  }
+
+  .checkbox-area {
+    margin-left: 16px;
+    flex: 0 0 auto;
+  }
+}
