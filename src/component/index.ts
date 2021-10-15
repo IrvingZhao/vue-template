@@ -1,6 +1,6 @@
 import { App } from 'vue'
-import Button, { ButtonConfig } from './button'
-import CheckInput, { CheckInputValue } from './checkInput'
+import Button from './button'
+import CheckInput from './checkInput'
 
 export default {
   install(app: App) {
@@ -9,4 +9,5 @@ export default {
   }
 }
 
-export { ButtonConfig, CheckInputValue }
+export * from './button'
+export * from './checkInput'

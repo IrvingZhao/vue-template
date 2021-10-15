@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed } from 'vue'
+import { defineComponent, ref, computed, PropType } from 'vue'
 import { ElButton, buttonProps } from 'element-plus'
 
 export interface ButtonConfig {
@@ -8,6 +8,7 @@ export interface ButtonConfig {
   plain?: boolean
   round?: boolean
   circle?: boolean
+  minWidth?: string | number
 }
 
 const EL_BUTTON_PROP_KEY = ['type', 'size', 'icon', 'nativeType', 'loading', 'disabled', 'plain', 'autofocus', 'round', 'circle']
@@ -17,7 +18,10 @@ export default defineComponent({
   extends: ElButton,
   props: {
     ...buttonProps,
-    config: Object,
+    config: {
+      type: Object as PropType<ButtonConfig>,
+      required: false
+    },
     tooltip: String
   },
   render(ctx, cache, prop, setup, data, option) {
@@ -69,7 +73,11 @@ export default defineComponent({
     const computedStyle = computed(() => {
       const styleResult: any = {}
       if (config && config.minWidth) {
-        styleResult.minWidth = config.minWidth
+        if (typeof config.minWidth === 'string') {
+          styleResult.minWidth = config.minWidth
+        } else {
+          styleResult.minWidth = `${config.minWidth}px`
+        }
       }
       return styleResult
     })
