@@ -1,6 +1,6 @@
 import Base from './base'
-import 'theme/src/base.scss'
-import 'theme/src/display.scss'
+import Component from './component'
 
 const app = Base.createApp({})
+app.use(Component)
 app.mount('#app')
