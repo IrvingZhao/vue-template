@@ -11,10 +11,17 @@ moduleResolves.push({
   executor: 'vue'
 })
 
+const elementPlusComponentReg = /element-plus\/[^/]*\/components\/([^/]*)/
 // element-plus
 moduleResolves.push({
   pattern: /\/node_modules\/element-plus/,
-  executor: 'element-plus'
+  executor(id) {
+    if (id.indexOf('element-plus/es/component') > -1) {
+      const componentName = elementPlusComponentReg.exec(id)?.[1]
+      return `element-plus/${componentName}`
+    }
+    return 'element-plus/index'
+  }
 })
 
 // vendor 需放在最后

@@ -1,3 +1,4 @@
+import { BuildOptions } from 'vite'
 import moduleResolves from './chunk'
 
 const outputDir = 'dist'
@@ -21,4 +22,4 @@ export default {
       }
     }
   }
-}
+} as BuildOptions
