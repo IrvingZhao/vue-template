@@ -11,3 +11,4 @@ export default {
 
 export * from './button'
 export * from './checkInput'
+export * from './loadingbar'
