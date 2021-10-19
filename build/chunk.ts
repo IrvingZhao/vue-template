@@ -11,11 +11,26 @@ moduleResolves.push({
   executor: 'vue'
 })
 
+const elementPlusComponentReg = /element-plus\/[^/]*\/components\/([^/]*)/
+// element-plus
+moduleResolves.push({
+  pattern: /\/node_modules\/element-plus/,
+  executor(id) {
+    if (id.indexOf('element-plus/es/component') > -1) {
+      const componentName = elementPlusComponentReg.exec(id)?.[1]
+      return `element-plus/${componentName}`
+    }
+    return 'element-plus/index'
+  }
+})
+
+// vendor 需放在最后
 moduleResolves.push({
   pattern: /\/node_modules\//,
   executor: 'vendor'
 })
 
+// 放在最后
 // 异步引入组件配置信息，src/module/check/a.vue => module/check
 moduleResolves.push({
   pattern: /\/src\/([^/])*\/*/,

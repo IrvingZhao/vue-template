@@ -7,6 +7,9 @@ interface ImportMetaEnv {
 
 interface StoreRootState {}
 
+declare type ComponentColor = 'default' | 'primary' | 'success' | 'warning' | 'info' | 'danger' | 'text'
+declare type ComponentSize = 'large' | 'medium' | 'small' | 'mini'
+
 declare module '*.vue' {
   import { DefineComponent } from 'vue'
   // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types

@@ -1,0 +1,24 @@
+.pj-loading-bar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--el-index-popper);
+
+  &-inner {
+    transition: width var(--el-transition-duration) linear;
+
+    &-color-primary {
+      background-color: var(--el-color-primary);
+    }
+
+    &-color-success {
+      background-color: var(--el-color-success);
+    }
+
+    &-failed-color-error {
+      background-color: var(--el-color-error);
+    }
+  }
+}

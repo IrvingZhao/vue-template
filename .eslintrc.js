@@ -32,6 +32,8 @@ module.exports = {
   settings: {},
   globals: {
     EventListenerOrEventListenerObject: true,
-    StoreRootState: true
+    StoreRootState: true,
+    ComponentSize: 'readonly',
+    ComponentColor: 'readonly'
   }
 }

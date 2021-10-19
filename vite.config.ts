@@ -14,5 +14,12 @@ export default defineConfig({
   resolve,
   base: baseUrl,
   server,
-  build
+  build,
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@use "@/theme/theme.scss" as *;'
+      }
+    }
+  }
 })
