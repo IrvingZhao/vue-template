@@ -11,6 +11,8 @@ export default {
   }
 }
 
+export { Button, CheckInput, Pagination }
+
 export * from './button'
 export * from './checkInput'
 export * from './loadingbar'
