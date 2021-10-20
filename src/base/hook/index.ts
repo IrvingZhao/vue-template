@@ -1,6 +1,10 @@
-import useEditPage, { EditPageProps, EditPageOption } from './EditPage'
+import useEditPage from './EditPage'
 import usePageStore from './PageStore'
 import useRouterMethod from './RouterMethod'
-import useStorePage, { StorePageOption, StorePageItem } from './StorePage'
+import useStorePage from './StorePage'
 
-export { useEditPage, EditPageProps, EditPageOption, usePageStore, useRouterMethod, useStorePage, StorePageOption, StorePageItem }
+export { useEditPage, usePageStore, useRouterMethod, useStorePage }
+export * from './EditPage'
+export * from './PageStore'
+export * from './RouterMethod'
+export * from './StorePage'
