@@ -1,0 +1,25 @@
+.multiple-select {
+  .select-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    & ~ .select-item {
+      margin-top: 10px;
+    }
+  }
+
+  .el-select {
+    flex: 1;
+    margin-right: 10px;
+  }
+
+  .el-button {
+    flex: 0 0;
+
+    & > i {
+      margin: 0;
+    }
+  }
+}
