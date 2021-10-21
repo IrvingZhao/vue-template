@@ -7,7 +7,7 @@
     "build": "vue-tsc --noEmit && vite build"
   },
   "dependencies": {
-    "element-plus": "^1.1.0-beta.20",
+    "element-plus": "^1.1.0-beta.24",
     "mitt": "^3.0.0",
     "throttle-debounce": "^3.0.1",
     "vue": "^3.2.20",
