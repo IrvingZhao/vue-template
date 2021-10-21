@@ -2,6 +2,7 @@ import { App } from 'vue'
 import createI18n from './I18nConfig'
 import createRouter, { RouteOption } from './RouterConfig'
 import createStore, { mapState } from './StoreConfig'
+import registerPrePathStore from './store/PrepathStore'
 
 export interface ConfigOptions {
   router?: RouteOption
@@ -18,6 +19,7 @@ class Config {
     const i18n = createI18n()
     const route = createRouter(this.options.router)
     const store = createStore()
+    registerPrePathStore(store, route)
     app.use(i18n).use(route).use(store)
   }
 }
