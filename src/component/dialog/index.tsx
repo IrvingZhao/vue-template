@@ -18,7 +18,7 @@ interface DialogSetupResult {
 }
 
 export default defineComponent({
-  name: 'PjDialog',
+  name: 'Dialog',
   emits: dialogEmits,
   components: { ElScrollbar, Transition, ElOverlay, ElButton },
   directives: { Resize, TrapFocus },

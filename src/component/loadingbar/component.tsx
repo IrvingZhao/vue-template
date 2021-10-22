@@ -74,7 +74,7 @@ const loadingBarComponent = defineComponent({
     )
   },
   setup(props) {
-    const prefixCls = 'pj-loading-bar'
+    const prefixCls = 'loading-bar'
     const classes = computed(() => prefixCls)
     const innerClasses = computed(() => {
       return [

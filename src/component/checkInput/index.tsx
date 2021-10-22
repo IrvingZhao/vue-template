@@ -9,7 +9,7 @@ export interface CheckInputValue {
 }
 
 export default defineComponent({
-  name: 'PjCheckInput',
+  name: 'CheckInput',
   inheritAttrs: false,
   components: { ElInput, ElCheckbox },
   props: {
@@ -40,7 +40,7 @@ export default defineComponent({
   },
   render(ctx, cache, props) {
     return (
-      <div class={'pj-check-input'}>
+      <div class={'check-input'}>
         <div class={'input-area'}>
           <ElInput v-model={ctx.value.text} disabled={ctx.formItemDisable || ctx.inputDisable} />
         </div>

@@ -1,5 +1,5 @@
 import { defineComponent, ref, computed, PropType } from 'vue'
-import { ElButton, buttonProps } from 'element-plus'
+import { ElButton, buttonProps, ElTooltip, Effect } from 'element-plus'
 
 export interface ButtonConfig {
   type?: ComponentColor
@@ -16,6 +16,7 @@ const EL_BUTTON_PROP_KEY = ['type', 'size', 'icon', 'nativeType', 'loading', 'di
 export default defineComponent({
   name: 'ElButton',
   extends: ElButton,
+  components: { ElTooltip },
   props: {
     ...buttonProps,
     config: {
@@ -39,9 +40,9 @@ export default defineComponent({
       }
       if (prop.tooltip) {
         $btn = (
-          <pj-tool-tip placement={'top'} content={prop.toolTip} effect={'dark'}>
+          <ElTooltip placement={'top'} content={prop.toolTip} effect={Effect.DARK}>
             {$btn}
-          </pj-tool-tip>
+          </ElTooltip>
         )
       }
     } else {
