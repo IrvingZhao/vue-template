@@ -21,7 +21,7 @@ export default {
   }
 }
 
-export { Button, CheckInput, Dialog, EditPage, Pagination, Password }
+export { Button, CheckInput, Dialog, EditPage, ListPage, MultipleSelect, Pagination, Password }
 
 export * from './button'
 export * from './checkInput'
