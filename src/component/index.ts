@@ -1,7 +1,7 @@
 import { App } from 'vue'
 import Button from './button'
 import CheckInput from './checkInput'
-import Dialog from './dialog/index.vue'
+import Dialog from './dialog'
 import EditPage from './editPage'
 import ListPage from './listPage'
 import MultipleSelect from './multiple-select'

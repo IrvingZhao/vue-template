@@ -3,7 +3,7 @@ import { ElButtonGroup } from 'element-plus'
 import './style.scss'
 import ElButton from '../button'
 import { dialogButtonConfig } from '../buttonConfig'
-import ElDialog from '../dialog/index.vue' // TODO 改tsx
+import ElDialog from '../dialog'
 import { ListPageContext, listPageKey } from '../listPage'
 
 interface SearchTag {
