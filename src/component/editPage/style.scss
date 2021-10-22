@@ -1,0 +1,85 @@
+.pj-edit-page {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+
+  .title {
+    flex: 0 0 auto;
+    margin: 24px 0 20px;
+    color: var(--el-text-color-primary);
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .sec-title {
+    flex: 0 0 auto;
+    margin: -12px 0 20px;
+    color: var(--el-text-color-primary);
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .step {
+    flex: 0 0 auto;
+    padding: 8px 0;
+
+    .el-steps {
+      justify-content: center;
+    }
+  }
+
+  * ~ .edit-page-container {
+    margin: 20px 0 0 0;
+  }
+
+  .edit-page-container {
+    flex: 1;
+    overflow: hidden;
+
+    .el-scrollbar {
+      height: 100%;
+
+      .el-scrollbar__wrap {
+        overflow-x: hidden;
+      }
+    }
+  }
+
+  .el-form {
+    .el-form-item__content {
+      > * {
+        width: 100%;
+      }
+    }
+  }
+
+  .button {
+    margin-top: 64px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  &.form {
+    .edit-main-content {
+      min-width: 530px;
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    .sec-title {
+      min-width: 530px;
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &.full {
+    .out-buttons {
+      margin-top: 24px;
+      text-align: center;
+    }
+  }
+}
