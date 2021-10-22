@@ -38,7 +38,7 @@ export default defineComponent({
       )
     }
     return (
-      <div class={['pj-edit-page', this.type]}>
+      <div class={['edit-page', this.type]}>
         {$title}
         {$secTitle}
         {$steps}
