@@ -1,0 +1,40 @@
+@forward "element-plus/theme-chalk/src/common/var.scss" with (
+  $colors: (
+    "success":(
+      'base':#00CFA3
+    ),
+    'cyan': (
+      'base': #51CBA5, // update 添加 青色
+    ),
+    'orange': (
+      'base': #FFA210, // update 添加 橘色
+    )
+  ),
+  $border-radius:(
+    'large':8px
+  ),
+  $input-font-size:(
+    'tiny':12px
+  ),
+  $input-height:(
+    'tiny':24px
+  ),
+  $input-line-height:(
+    'tiny':16px
+  ),
+  $input-number-width:(
+    'tiny':130px
+  ),
+  $button-font-size:(
+    'tiny':12px
+  ),
+  $button-border-radius:(
+    'tiny':var(--el-border-radius-base)
+  ),
+  $button-padding-vertical:(
+    'tiny':5px
+  ),
+  $button-padding-horizontal:(
+    'tiny':'8px'
+  )
+);
