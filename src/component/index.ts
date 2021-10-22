@@ -1,7 +1,7 @@
 import { App } from 'vue'
 import Button from './button'
 import CheckInput from './checkInput'
-import Dialog from './dialog/index.vue'
+import Dialog from './dialog'
 import MultipleSelect from './multiple-select'
 import Pagination from './pagination'
 import Password from './password'
