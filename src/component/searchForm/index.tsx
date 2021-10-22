@@ -1,4 +1,4 @@
-import { defineComponent, inject, ref, PropType, nextTick, VNode } from 'vue'
+import { defineComponent, inject, ref, PropType, nextTick, VNode, onMounted } from 'vue'
 import { ElButtonGroup } from 'element-plus'
 import './style.scss'
 import ElButton from '../button'
@@ -43,6 +43,9 @@ export default defineComponent({
   emits: ['remove', 'reset', 'search'],
   setup(props, ctx) {
     const listPage = inject<ListPageContext>(listPageKey)
+    if (listPage) {
+      listPage.dialogSearch = props.more
+    }
     const state: StateInterface = ref({
       moreButtonVisible: false,
       moreDiaVisible: false,
@@ -187,10 +190,16 @@ export default defineComponent({
       return searchFormItem
     }
 
+    onMounted(() => {
+      if (props.more) {
+        state.resizeCount += 1
+        computedSearchFormWidth()
+      }
+    })
+
     return {
       fieldArea,
       searchContent,
-      listPage,
       state,
       visibleMore,
       closeMore,
@@ -203,17 +212,17 @@ export default defineComponent({
       computedSearchFormWidth
     }
   },
-  render() {
-    const $moreButton = this.state.moreButtonVisible ? (
+  render(ctx, cache, props) {
+    const $moreButton = ctx.state.moreButtonVisible ? (
       <div class={'more-tag'}>
-        <ElButton type={'text'} onClick={this.visibleMore}>
+        <ElButton type={'text'} onClick={ctx.visibleMore}>
           更多条件&gt;
         </ElButton>
       </div>
     ) : null
-    const $moreTags = this.state.searchTags.map((item, index) => {
+    const $moreTags = ctx.state.searchTags.map((item, index) => {
       const closeEvent = () => {
-        this.closeTag(item, index)
+        ctx.closeTag(item, index)
       }
       return (
         <div class={'search-tag-item'} key={item.label}>
@@ -230,10 +239,10 @@ export default defineComponent({
         <div class={'search-tags'}>{$moreTags}</div>
         <div class={'operator-button'}>
           <ElButtonGroup>
-            <ElButton size={'mini'} plain={true} round={true} onClick={this.visibleMore}>
+            <ElButton size={'mini'} plain={true} round={true} onClick={ctx.visibleMore}>
               编辑
             </ElButton>
-            <ElButton size={'mini'} plain={true} round={true} onClick={this.reset}>
+            <ElButton size={'mini'} plain={true} round={true} onClick={ctx.reset}>
               重置
             </ElButton>
           </ElButtonGroup>
@@ -241,17 +250,17 @@ export default defineComponent({
       </div>
     )
     const $normalSearch = (
-      <div class={'normal-search-area'} key={'normal-search-area'} v-resize={this.searchFormContentResize}>
-        <div class={'normal-search-content'} ref={'searchContent'} key={'normal-search-content'} v-resize={this.searchFormContentResize}>
+      <div class={'normal-search-area'} key={'normal-search-area'} v-resize={ctx.searchFormContentResize}>
+        <div class={'normal-search-content'} ref={'searchContent'} key={'normal-search-content'} v-resize={ctx.searchFormContentResize}>
           <div class={'search-form-item-area'} ref={'fieldArea'}>
-            {this.getSearchFormItems('searchForm')}
+            {ctx.getSearchFormItems('searchForm')}
           </div>
           <div class={'operator-button'}>
             <ElButtonGroup>
-              <ElButton size={'mini'} plain={true} round={true} onClick={this.search}>
+              <ElButton size={'mini'} plain={true} round={true} onClick={ctx.search}>
                 搜索
               </ElButton>
-              <ElButton size={'mini'} plain={true} round={true} onClick={this.reset}>
+              <ElButton size={'mini'} plain={true} round={true} onClick={ctx.reset}>
                 重置
               </ElButton>
             </ElButtonGroup>
@@ -265,23 +274,23 @@ export default defineComponent({
 
     const dialogFooter = () => (
       <div style={'text-align:right'}>
-        <ElButton config={dialogButtonConfig.default} onClick={this.closeMore}>
+        <ElButton config={dialogButtonConfig.default} onClick={ctx.closeMore}>
           取消
         </ElButton>
-        <ElButton config={dialogButtonConfig.confirm} onClick={this.moreSearchSubmit}>
+        <ElButton config={dialogButtonConfig.confirm} onClick={ctx.moreSearchSubmit}>
           提交
         </ElButton>
       </div>
     )
     const moreDialog = (
-      <ElDialog modelValue={this.state.moreDiaVisible} v-slots={{ footer: dialogFooter }}>
-        <div class={'dialog-search-form-area'}>{this.getSearchFormItems('dialogForm')}</div>
+      <ElDialog modelValue={ctx.state.moreDiaVisible} v-slots={{ footer: dialogFooter }}>
+        <div class={'dialog-search-form-area'}>{ctx.getSearchFormItems('dialogForm')}</div>
       </ElDialog>
     )
     return (
-      <div class={['search-form', { 'has-more': this.more }]}>
-        {this.state.moreTag ? $moreSearchTag : $normalSearch}
-        {this.more ? moreDialog : null}
+      <div class={['search-form', { 'has-more': props.more }]}>
+        {ctx.state.moreTag ? $moreSearchTag : $normalSearch}
+        {props.more ? moreDialog : null}
       </div>
     )
   }
