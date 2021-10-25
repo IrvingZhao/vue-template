@@ -1,6 +1,6 @@
 import { App } from 'vue'
 import Button from './button'
-import CheckInput from './checkInput'
+import CheckInput from './check-input'
 import Dialog from './dialog'
 import MultipleSelect from './multiple-select'
 import Pagination from './pagination'
@@ -17,8 +17,8 @@ export default {
   }
 }
 
-export { Button, CheckInput, Dialog, Pagination, Password }
+export { Button, CheckInput, Dialog, MultipleSelect, Pagination, Password }
 
 export * from './button'
-export * from './checkInput'
+export * from './check-input'
 export * from './loadingbar'
