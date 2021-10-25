@@ -17,23 +17,7 @@ export default defineComponent({
         ctx.emit(key, val)
       }
     }
-    const { pageInfo } = props
-
-    const currentPageHandle = (val) => {
-      if (pageInfo) {
-        pageInfo.pageIndex = val
-      }
-      ctx.emit('update:current-page', val)
-    }
-
-    const pageSizeHandle = (val) => {
-      if (pageInfo) {
-        pageInfo.pageSize = val
-      }
-      ctx.emit('update:page-size', val)
-    }
-
-    return { wrapEvent, currentPageHandle, pageSizeHandle }
+    return { wrapEvent }
   },
   render(ctx, cache, props) {
     const newProps = {
@@ -45,8 +29,8 @@ export default defineComponent({
       'onCurrent-change': ctx.wrapEvent('current-change'),
       'onPrev-click': ctx.wrapEvent('prev-click'),
       'onNext-click': ctx.wrapEvent('next-click'),
-      'onUpdate:currentPage': ctx.currentPageHandle,
-      'onUpdate:pageSize': ctx.pageSizeHandle
+      'onUpdate:current-page': ctx.wrapEvent('update:current-page'),
+      'onUpdate:page-size': ctx.wrapEvent('update:page-size')
     }
 
     return <ElPagination {...newProps} />
