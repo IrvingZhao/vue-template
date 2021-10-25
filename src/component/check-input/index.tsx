@@ -1,6 +1,5 @@
 import { defineComponent, PropType, inject, computed, ref, watch } from 'vue'
 import { elFormKey, elFormItemKey, ElFormContext, ElFormItemContext, ElInput, ElCheckbox } from 'element-plus'
-// import { CheckInputValue } from './define'
 import './style.scss'
 
 export interface CheckInputValue {
@@ -9,7 +8,7 @@ export interface CheckInputValue {
 }
 
 export default defineComponent({
-  name: 'PjCheckInput',
+  name: 'CheckInput',
   inheritAttrs: false,
   components: { ElInput, ElCheckbox },
   props: {
@@ -40,7 +39,7 @@ export default defineComponent({
   },
   render(ctx, cache, props) {
     return (
-      <div class={'pj-check-input'}>
+      <div class={'check-input'}>
         <div class={'input-area'}>
           <ElInput v-model={ctx.value.text} disabled={ctx.formItemDisable || ctx.inputDisable} />
         </div>
