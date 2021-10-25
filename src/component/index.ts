@@ -1,6 +1,6 @@
 import { App } from 'vue'
 import Button from './button'
-import CheckInput from './checkInput'
+import CheckInput from './check-input'
 import Dialog from './dialog'
 import EditPage from './editPage'
 import ListPage from './listPage'
@@ -24,5 +24,5 @@ export default {
 export { Button, CheckInput, Dialog, EditPage, ListPage, MultipleSelect, Pagination, Password }
 
 export * from './button'
-export * from './checkInput'
+export * from './check-input'
 export * from './loadingbar'

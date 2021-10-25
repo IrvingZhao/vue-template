@@ -1,6 +1,5 @@
 import { defineComponent, PropType, inject, computed, ref, watch } from 'vue'
 import { elFormKey, elFormItemKey, ElFormContext, ElFormItemContext, ElInput, ElCheckbox } from 'element-plus'
-// import { CheckInputValue } from './define'
 import './style.scss'
 
 export interface CheckInputValue {
