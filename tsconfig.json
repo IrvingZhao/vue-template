@@ -14,6 +14,11 @@
     "baseUrl": ".",
     "noImplicitAny": false,
     "resolveJsonModule": true,
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
     "lib": [
       "esnext",
       "dom",
