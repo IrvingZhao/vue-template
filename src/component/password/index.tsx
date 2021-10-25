@@ -48,8 +48,8 @@ export default defineComponent({
       events[key] = ctx.mockEvent(type)
     })
 
-    const $input = <pj-input {...props} {...events} type={'password'} v-slots={$slots} />
-    const $progress = <pj-progress {...ctx.progressProp} style={{ marginTop: '10px' }} />
+    const $input = <ElInput {...props} {...events} type={'password'} v-slots={$slots} />
+    const $progress = <ElProgress {...ctx.progressProp} style={{ marginTop: '10px' }} />
     return (
       <div>
         {$input}
