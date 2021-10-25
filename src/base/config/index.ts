@@ -1,7 +1,7 @@
 import { App } from 'vue'
 import createI18n from './I18nConfig'
 import createRouter, { RouteOption } from './RouterConfig'
-import createStore, { mapState } from './StoreConfig'
+import createStore from './StoreConfig'
 
 export interface ConfigOptions {
   router?: RouteOption
@@ -26,4 +26,4 @@ export function createConfig(options: ConfigOptions): Config {
   return new Config(options)
 }
 
-export { mapState }
+export * from './StoreConfig'
