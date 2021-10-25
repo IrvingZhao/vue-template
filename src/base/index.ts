@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import app from './app'
-import { createConfig, ConfigOptions, mapState } from './config'
+import { createConfig, ConfigOptions, mapState, mapMutation, mapAction } from './config'
 import directive from './directives'
 
 export default {
@@ -12,5 +12,6 @@ export default {
   }
 }
 
-export { mapState }
+export { mapState, mapMutation, mapAction }
+
 export * from './hook'
