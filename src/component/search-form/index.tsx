@@ -2,9 +2,9 @@ import { defineComponent, inject, ref, PropType, nextTick, VNode, onMounted } fr
 import { ElButtonGroup } from 'element-plus'
 import './style.scss'
 import ElButton from '../button'
-import { dialogButtonConfig } from '../buttonConfig'
+import { dialogButtonConfig } from '../button-config'
 import ElDialog from '../dialog'
-import { ListPageContext, listPageKey } from '../listPage'
+import { ListPageContext, listPageKey } from '../list-page'
 
 interface SearchTag {
   name: string
