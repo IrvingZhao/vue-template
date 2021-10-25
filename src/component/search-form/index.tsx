@@ -179,11 +179,7 @@ export default defineComponent({
         }
 
         $searchForm()
-          .flatMap((item) => {
-            console.info(item)
-            return item
-            // return item.children && item.children.length > 0 ? item.children : item
-          })
+          .flatMap((item) => item.children || item)
           .forEach(addSearchFormItem)
       }
 
