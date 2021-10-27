@@ -1,0 +1,47 @@
+@use 'sass:map';
+
+@use '~element-plus/theme-chalk/src/mixins/button' as *;
+@use '~element-plus/theme-chalk/src/mixins/mixins' as *;
+@use '~element-plus/theme-chalk/src/mixins/utils' as *;
+@use '~element-plus/theme-chalk/src/mixins/var' as *;
+
+@include b(button) {
+  @each $type in ('orange', 'cyan') {
+    @include m($type) {
+      --el-button-font-color: #{map.get($button-font-color, $type)};
+      --el-button-background-color: #{map.get($button-background-color, $type)};
+      --el-button-border-color: #{map.get($button-border-color, $type)};
+      --el-button-hover-color: #{map.get($colors, $type, 'light-2')};
+      --el-button-active-font-color: #{darken(
+          map.get($button-font-color, $type),
+          $button-active-shade-percent
+        )};
+      --el-button-active-background-color: #{darken(
+          map.get($button-background-color, $type),
+          $button-active-shade-percent
+        )};
+      --el-button-active-border-color: #{darken(
+          map.get($button-border-color, $type),
+          $button-active-shade-percent
+        )};
+
+      @include button-variant($type);
+    }
+  }
+  @each $size in ('tiny') {
+    @include m($size) {
+      min-height: map.get($input-height, $size);
+
+      @include button-size(
+                      map.get($button-padding-vertical, $size),
+                      map.get($button-padding-horizontal, $size),
+                      map.get($button-font-size, $size),
+                      map.get($button-border-radius, $size)
+      );
+
+      @include when(circle) {
+        padding: map.get($button-padding-vertical, $size);
+      }
+    }
+  }
+}

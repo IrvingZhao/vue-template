@@ -1,4 +1,7 @@
-@forward "element-plus/theme-chalk/src/common/var.scss" with (
+@use "sass:map";
+
+@forward "~element-plus/theme-chalk/src/common/var.scss" with (
+//$types: (primary, success, warning, danger, error, info, 'orange', 'cyan'),
   $colors: (
     "success":(
       'base':#00CFA3
@@ -35,6 +38,56 @@
     'tiny':5px
   ),
   $button-padding-horizontal:(
-    'tiny':'8px'
-  )
+    'tiny':8px
+  ),
 );
+
+@use "~element-plus/theme-chalk/src/common/var.scss" as *;
+
+$newType: 'orange', 'cyan';
+@for $i from 1 through 9 {
+  @each $type in $newType {
+    @include set-color-type-light($type, $i);
+  }
+}
+
+@each $type in $newType {
+  $button-border-color: map.merge(
+                  (
+                          $type: map.get($colors, $type, 'base'),
+                  ),
+                  $button-border-color
+  ) !global;
+
+  $button-background-color: map.merge(
+                  (
+                          $type: map.get($colors, $type, 'base'),
+                  ),
+                  $button-background-color
+  ) !global;
+
+  $button-font-color: map.merge(
+                  (
+                          $type: map.get($colors, 'white'),
+                  ),
+                  $button-font-color
+  ) !global;
+}
+
+@each $type in $newType {
+  $tag-color: map.merge(
+                  (
+                          $type: map.get($colors, $type, 'base'),
+                  ),
+                  $tag-color
+  ) !global;
+}
+
+@each $type in $newType {
+  $link-font-color: map.merge(
+                  $link-font-color,
+                  (
+                          $type: map.get($colors, $type, 'base'),
+                  )
+  ) !global;
+}
