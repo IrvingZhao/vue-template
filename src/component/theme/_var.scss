@@ -1,0 +1,8 @@
+@use '~element-plus/theme-chalk/src/mixins/var' as *;
+@use '~element-plus/theme-chalk/src/mixins/var' as *;
+
+:root{
+  @each $type in ('orange','cyan') {
+    @include set-css-color-type($type);
+  }
+}

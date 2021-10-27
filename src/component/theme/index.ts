@@ -1,4 +1,5 @@
 import { buildProp } from 'element-plus/es/utils/props'
+import './_var.scss'
 
 export function generateTypeProp(types: string[], defaultValue: string = '') {
   const mockTypes = [...types, 'orange', 'cyan']

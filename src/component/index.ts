@@ -8,6 +8,7 @@ import MultipleSelect from './multiple-select'
 import Pagination from './pagination'
 import Password from './password'
 import SearchForm from './search-form'
+import './badge'
 
 export default {
   install(app: App) {

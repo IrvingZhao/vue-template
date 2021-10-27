@@ -1,0 +1,12 @@
+@use '~element-plus/theme-chalk/src/mixins/mixins' as *;
+@use '~element-plus/theme-chalk/src/mixins/var' as *;
+
+@include b(badge) {
+  @include e(content) {
+    @each $type in ('orange','cyan') {
+      @include m($type) {
+        background-color: var(--el-color-#{$type});
+      }
+    }
+  }
+}
