@@ -45,3 +45,22 @@
     }
   }
 }
+
+@include b(button-group) {
+  @each $type in ('orange', 'cyan') {
+    .#{$namespace}-button--#{$type} {
+      &:first-child {
+        border-right-color: var(--el-button-divide-border-color);
+      }
+
+      &:last-child {
+        border-left-color: var(--el-button-divide-border-color);
+      }
+
+      &:not(:first-child):not(:last-child) {
+        border-left-color: var(--el-button-divide-border-color);
+        border-right-color: var(--el-button-divide-border-color);
+      }
+    }
+  }
+}

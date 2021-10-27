@@ -1,0 +1,18 @@
+@use '~element-plus/theme-chalk/src/mixins/var' as *;
+@use '~element-plus/theme-chalk/src/mixins/var' as *;
+
+:root {
+  @each $type in ('orange', 'cyan') {
+    @include set-css-color-type($type);
+  }
+}
+
+@include b(input-number) {
+  &.align-left .#{$namespace}-input__inner {
+    text-align: left;
+  }
+}
+
+@include b(pagination) {
+  text-align: center;
+}
