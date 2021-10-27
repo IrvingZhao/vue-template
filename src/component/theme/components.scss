@@ -5,6 +5,9 @@
   @each $type in ('orange', 'cyan') {
     @include set-css-color-type($type);
   }
+  // 更新表头颜色设置
+  --el-table-header-font-color: var(--el-text-color-primary);
+  --el-table-header-background-color: #EDF1F7;
 }
 
 @include b(input-number) {
@@ -15,4 +18,34 @@
 
 @include b(pagination) {
   text-align: center;
+}
+
+// 表格样式
+@include b(table) {
+  border-radius: var(--el-border-radius-large);
+  border: 1px solid var(--el-border-color-base);
+  @include m(fit) {
+    border-right: 1px solid var(--el-border-color-base);
+    border-left: 1px solid var(--el-border-color-base);
+  }
+  th {
+    background-color: var(--el-table-header-background-color);
+  }
+  th, td {
+    padding: 7px 0;
+    background: var(--el-color-white);
+    color: var(--el-table-header-font-color);
+    font-size: var(--el-font-size-medium);
+  }
+  @include e(fixed-right-patch) {
+    background-color: var(--el-table-header-background-color);
+    color: var(--el-table-header-font-color);
+    font-size: var(--el-font-size-medium);
+  }
+  @include m(fluid-height) {
+    .#{$namespace}-table__fixed,
+    .#{$namespace}-table__fixed-right {
+      border-radius: var(--el-border-radius-large);
+    }
+  }
 }
