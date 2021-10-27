@@ -1,7 +1,15 @@
 import { buildProp } from 'element-plus/es/utils/props'
 
-export function addType(types: string[]) {
-  types.push('orange', 'cyan')
+export function generateTypeProp(types: string[], defaultValue: string = '') {
+  const mockTypes = [...types, 'orange', 'cyan']
+  return buildProp(
+    {
+      type: String,
+      values: mockTypes,
+      default: defaultValue
+    },
+    'type'
+  )
 }
 
 export function generateSizeProp(oldSize: string[]) {
