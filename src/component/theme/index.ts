@@ -1,8 +1,8 @@
-import { buildProp } from 'element-plus/es/utils/props'
+import { buildProp, BuildPropReturn } from 'element-plus/es/utils/props'
 import './components.scss'
 
-export function generateTypeProp(types: string[], defaultValue: string = '') {
-  const mockTypes = [...types, 'orange', 'cyan']
+export function generateTypeProp(defaultValue: string = ''): BuildPropReturn<ComponentColor, ComponentColor, false, any, any> {
+  const mockTypes = [undefined, '', 'default', 'primary', 'success', 'warning', 'info', 'danger', 'text', 'cyan', 'orange']
   return buildProp(
     {
       type: String,
@@ -10,11 +10,11 @@ export function generateTypeProp(types: string[], defaultValue: string = '') {
       default: defaultValue
     },
     'type'
-  )
+  ) as BuildPropReturn<ComponentColor, ComponentColor, false, ComponentColor, ComponentColor>
 }
 
-export function generateSizeProp(oldSize: string[]) {
-  const mockSize = [...oldSize, 'tiny']
+export function generateSizeProp(): BuildPropReturn<ComponentSize, ComponentSize, false, any, any> {
+  const mockSize = ['', 'large', 'medium', 'small', 'mini', 'tiny']
   return buildProp(
     {
       type: String,
@@ -22,5 +22,5 @@ export function generateSizeProp(oldSize: string[]) {
       default: ''
     },
     'size'
-  )
+  ) as BuildPropReturn<ComponentSize, ComponentSize, false, any, any>
 }

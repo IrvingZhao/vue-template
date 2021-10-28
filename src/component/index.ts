@@ -1,4 +1,5 @@
 import { App } from 'vue'
+import Badge from './badge'
 import Button from './button'
 import CheckInput from './check-input'
 import Dialog from './dialog'
@@ -8,7 +9,6 @@ import MultipleSelect from './multiple-select'
 import Pagination from './pagination'
 import Password from './password'
 import SearchForm from './search-form'
-import './badge'
 
 export default {
   install(app: App) {
@@ -24,7 +24,7 @@ export default {
   }
 }
 
-export { Button, CheckInput, Dialog, EditPage, ListPage, MultipleSelect, Pagination, Password, SearchForm }
+export { Badge, Button, CheckInput, Dialog, EditPage, ListPage, MultipleSelect, Pagination, Password, SearchForm }
 
 export * from './button'
 export * from './button-config'

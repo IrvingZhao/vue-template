@@ -1,5 +1,5 @@
 import { defineComponent, ref, computed, PropType } from 'vue'
-import { ElButton, buttonProps, buttonType, buttonSize, ElTooltip, Effect } from 'element-plus'
+import { ElButton, buttonProps, ElTooltip, Effect } from 'element-plus'
 import { generateTypeProp, generateSizeProp } from '../theme'
 import './theme.scss'
 
@@ -13,19 +13,18 @@ export interface ButtonConfig {
   minWidth?: string | number
 }
 
-// 覆盖颜色和尺寸校验
-const mockButtonProps = buttonProps as any
-mockButtonProps.size = generateSizeProp(buttonSize as unknown as string[])
-mockButtonProps.type = generateTypeProp(buttonType as unknown as string[])
+const size = generateSizeProp()
+const type = generateTypeProp()
 
 const EL_BUTTON_PROP_KEY = ['type', 'size', 'icon', 'nativeType', 'loading', 'disabled', 'plain', 'autofocus', 'round', 'circle']
 
 export default defineComponent({
   name: 'ElButton',
-  extends: ElButton,
   components: { ElTooltip },
   props: {
     ...buttonProps,
+    size,
+    type,
     config: {
       type: Object as PropType<ButtonConfig>,
       required: false

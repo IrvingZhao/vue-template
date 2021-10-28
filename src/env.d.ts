@@ -7,8 +7,8 @@ interface ImportMetaEnv {
 
 interface StoreRootState {}
 
-declare type ComponentColor = 'default' | 'primary' | 'success' | 'warning' | 'info' | 'danger' | 'text' | 'orange' | 'cyan'
-declare type ComponentSize = 'large' | 'medium' | 'small' | 'mini' | 'tiny'
+declare type ComponentColor = '' | 'default' | 'primary' | 'success' | 'warning' | 'info' | 'danger' | 'text' | 'orange' | 'cyan'
+declare type ComponentSize = '' | 'large' | 'medium' | 'small' | 'mini' | 'tiny'
 
 declare module '*.vue' {
   import { DefineComponent } from 'vue'
