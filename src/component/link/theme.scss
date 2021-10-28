@@ -1,0 +1,37 @@
+@use "sass:map";
+
+@use '~element-plus/theme-chalk/src/common/var' as *;
+@use '~element-plus/theme-chalk/src/mixins/mixins' as *;
+
+$newType: 'orange', 'cyan';
+:root {
+  @each $type in $newType {
+    --el-link-#{$type}-font-color: var(--el-color-#{$type});
+  }
+}
+
+@include b(link) {
+  @each $type in $newType {
+    &.#{$namespace}-link--#{$type} {
+      --el-link-font-color: var(--el-color-#{$type});
+      color: var(--el-link-font-color);
+
+      &:hover {
+        color: mix(map.get($link-font-color, $type), $color-white, 80%);
+      }
+
+      &:after {
+        border-color: var(--el-link-font-color);
+      }
+
+      @include when(disabled) {
+        color: mix(map.get($link-font-color, $type), $color-white, 50%);
+      }
+      @include when(underline) {
+        &:hover:after {
+          border-color: var(--el-link-font-color);
+        }
+      }
+    }
+  }
+}

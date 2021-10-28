@@ -4,6 +4,7 @@ import Button from './button'
 import CheckInput from './check-input'
 import Dialog from './dialog'
 import EditPage from './edit-page'
+import Link from './link'
 import ListPage from './list-page'
 import MultipleSelect from './multiple-select'
 import Pagination from './pagination'
@@ -24,7 +25,7 @@ export default {
   }
 }
 
-export { Badge, Button, CheckInput, Dialog, EditPage, ListPage, MultipleSelect, Pagination, Password, SearchForm }
+export { Badge, Button, CheckInput, Dialog, EditPage, Link, ListPage, MultipleSelect, Pagination, Password, SearchForm }
 
 export * from './button'
 export * from './button-config'
