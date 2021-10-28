@@ -1,5 +1,5 @@
 import { defineComponent, ref, computed, PropType } from 'vue'
-import { ElButton, buttonProps, ElTooltip, Effect } from 'element-plus'
+import { ElButton, buttonProps, buttonEmits, ElTooltip, Effect } from 'element-plus'
 import { generateTypeProp, generateSizeProp } from '../theme'
 import './theme.scss'
 
@@ -21,6 +21,7 @@ const EL_BUTTON_PROP_KEY = ['type', 'size', 'icon', 'nativeType', 'loading', 'di
 export default defineComponent({
   name: 'ElButton',
   components: { ElTooltip },
+  emits: buttonEmits,
   props: {
     ...buttonProps,
     size,
