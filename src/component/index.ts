@@ -10,6 +10,7 @@ import MultipleSelect from './multiple-select'
 import Pagination from './pagination'
 import Password from './password'
 import SearchForm from './search-form'
+import Tag from './tag'
 
 export default {
   install(app: App) {
@@ -25,7 +26,7 @@ export default {
   }
 }
 
-export { Badge, Button, CheckInput, Dialog, EditPage, Link, ListPage, MultipleSelect, Pagination, Password, SearchForm }
+export { Badge, Button, CheckInput, Dialog, EditPage, Link, ListPage, MultipleSelect, Pagination, Password, SearchForm, Tag }
 
 export * from './button'
 export * from './button-config'

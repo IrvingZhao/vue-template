@@ -1,0 +1,55 @@
+@use 'sass:map';
+
+@use '~element-plus/theme-chalk/src/mixins/mixins' as *;
+@use '~element-plus/theme-chalk/src/mixins/var' as *;
+@use '~element-plus/theme-chalk/src/common/var' as *;
+
+$newTypes: 'orange', 'cyan';
+
+@mixin genTheme(
+  $backgroundColorWeight,
+  $borderColorWeight,
+  $fontColorWeight,
+  $hoverColorWeight
+) {
+  @each $type in $newTypes {
+    &.#{$namespace}-tag--#{$type} {
+      --el-tag-background-color: #{mix(
+          map.get($tag-color, $type),
+          $color-white,
+          $backgroundColorWeight
+        )};
+      --el-tag-border-color: #{mix(
+          map.get($tag-color, $type),
+          $color-white,
+          $borderColorWeight
+        )};
+      --el-tag-font-color: #{mix(
+          map.get($tag-color, $type),
+          $color-white,
+          $fontColorWeight
+        )};
+      --el-tag-hover-color: #{mix(
+          map.get($tag-color, $type),
+          $color-white,
+          $hoverColorWeight
+        )};
+
+      @include when(hit) {
+        border-color: map.get($tag-color, $type);
+      }
+    }
+  }
+}
+
+@include b(tag) {
+  @include genTheme(10%, 20%, 100%, 100%);
+
+  @include m(dark) {
+    @include genTheme(100%, 100%, 0, 80%);
+  }
+
+  @include m(plain) {
+    @include genTheme(0, 40%, 100%, 100%);
+  }
+}
