@@ -1,5 +1,5 @@
 @use '~element-plus/theme-chalk/src/mixins/var' as *;
-@use '~element-plus/theme-chalk/src/mixins/var' as *;
+@use '~element-plus/theme-chalk/src/mixins/mixins' as *;
 
 :root {
   @each $type in ('orange', 'cyan') {
