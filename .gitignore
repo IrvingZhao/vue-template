@@ -2,7 +2,7 @@ node_modules
 .DS_Store
 dist
 dist-ssr
-dist_electron
+dist-electron
 *.local
 
 # Log files
