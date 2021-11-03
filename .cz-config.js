@@ -20,7 +20,7 @@ module.exports = {
     ['components', '组件相关'],
     ['hooks', 'hook 相关'],
     ['utils', 'utils 相关'],
-    ['element-ui', '对 element-ui 的调整'],
+    ['element-plus', '对 element-ui 的调整'],
     ['styles', '样式相关'],
     ['deps', '项目依赖'],
     ['auth', '对 auth 修改'],
@@ -35,7 +35,7 @@ module.exports = {
   }),
 
   // 是否允许自定义填写 scope，在 scope 选择的时候，会有 empty 和 custom 可以选择。
-  // allowCustomScopes: true,
+  allowCustomScopes: true,
 
   // allowTicketNumber: false,
   // isTicketNumberRequired: false,
@@ -72,12 +72,7 @@ module.exports = {
   // 设置只有 type 选择了 feat 或 fix，才询问 breaking message
   allowBreakingChanges: ['feat', 'fix'],
 
-  // 跳过要询问的步骤
-  // skipQuestions: ['body', 'footer'],
-
   // subject 限制长度
   subjectLimit: 100,
   breaklineChar: '|' // 支持 body 和 footer
-  // footerPrefix : 'ISSUES CLOSED:'
-  // askForBreakingChangeFirst : true,
 }
