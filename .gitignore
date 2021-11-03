@@ -1,8 +1,6 @@
 node_modules
 .DS_Store
-dist
-dist-ssr
-dist_electron
+dist*/
 *.local
 
 # Log files
@@ -20,6 +18,3 @@ pnpm-debug.log*
 *.sln
 *.sw?
 *.iml
-
-# 样式编译文件
-theme/lib
