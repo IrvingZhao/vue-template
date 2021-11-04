@@ -18,7 +18,9 @@ moduleResolves.push({
   executor(id) {
     if (id.indexOf('element-plus/es/component') > -1) {
       const componentName = elementPlusComponentReg.exec(id)?.[1]
-      return `element-plus/${componentName}`
+      if (componentName) {
+        return `element-plus/${componentName}`
+      }
     }
     return 'element-plus/index'
   }
