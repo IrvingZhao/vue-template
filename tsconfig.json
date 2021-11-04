@@ -27,8 +27,7 @@
     ],
     "types": [
       "vite/client",
-      "@intlify/vite-plugin-vue-i18n/client",
-      "src/env.d.ts"
+      "@intlify/vite-plugin-vue-i18n/client"
     ]
   },
   "include": [
