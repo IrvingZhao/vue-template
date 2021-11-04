@@ -1,8 +1,8 @@
 /// <reference types="vite/client" />
 interface ImportMetaEnv {
-  VITE_PROFILE: string
-  VITE_I18N_LOCALE: string
-  VITE_I18N_FAIL_LOCALE: string
+  ENV_PROFILE: string
+  ENV_I18N_LOCALE: string
+  ENV_I18N_FAIL_LOCALE: string
 }
 
 interface StoreRootState {}
