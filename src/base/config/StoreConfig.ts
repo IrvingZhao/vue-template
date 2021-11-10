@@ -21,8 +21,8 @@ function mutation(this: StoreMethodParam, preload: any): void {
 
 export default function create(modules?: ModuleTree<StoreRootState>): Store<StoreRootState> {
   store = createStore<StoreRootState>({
-    strict: import.meta.env.VITE_PROFILE === 'development',
-    devtools: import.meta.env.VITE_PROFILE === 'development',
+    strict: import.meta.env.ENV_PROFILE === 'development',
+    devtools: import.meta.env.ENV_PROFILE === 'development',
     modules
   })
 
