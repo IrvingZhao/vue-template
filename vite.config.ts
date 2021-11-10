@@ -10,6 +10,7 @@ const baseUrl = '/'
 // https://vitejs.dev/config/
 export default defineConfig({
   envDir: path.resolve(__dirname, 'env'),
+  envPrefix: 'ENV_',
   plugins,
   resolve,
   base: baseUrl,
