@@ -18,7 +18,7 @@ const plugins = [
     esModuleInterop: true,
     allowSyntheticDefaultImports: true,
     sourceMap: false,
-    baseUrl: '.',
+    baseUrl: 'node_modules',
     noImplicitAny: false,
     resolveJsonModule: true
   }),

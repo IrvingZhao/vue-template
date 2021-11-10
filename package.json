@@ -2,13 +2,19 @@
   "name": "vue-template",
   "version": "1.0.0",
   "license": "MIT",
+  "main": "dist-electron/index.js",
   "scripts": {
     "prepare": "husky install",
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "dev": "concurrently -k \"yarn dev:vue\" \"yarn dev:electron\"",
+    "dev:vue": "vite",
+    "dev:electron": "rollup -c && wait-on tcp:3000 && cross-env profile=development electron dist-electron",
+    "build": "yarn build:vue && yarn build:electron",
+    "build:vue": "vue-tsc --noEmit && vite build",
+    "build:electron": "rollup -c && electron-builder --config electron-build.json",
     "serve": "vite preview"
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
     "mitt": "^3.0.0",
     "throttle-debounce": "^3.0.1",
     "vue": "^3.2.20",
@@ -30,9 +36,12 @@
     "@vitejs/plugin-vue-jsx": "^1.2.0",
     "@vue/compiler-sfc": "^3.2.14",
     "commitizen": "^4.2.4",
+    "concurrently": "^6.3.0",
+    "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "cz-customizable": "^6.3.0",
     "electron": "^15.3.0",
+    "electron-builder": "^22.13.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
@@ -47,7 +56,8 @@
     "sass": "^1.42.1",
     "typescript": "^4.4.3",
     "vite": "^2.6.4",
-    "vue-tsc": "^0.3.0"
+    "vue-tsc": "^0.3.0",
+    "wait-on": "^6.0.0"
   },
   "config": {
     "commitizen": {

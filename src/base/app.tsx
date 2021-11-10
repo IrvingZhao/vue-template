@@ -2,6 +2,6 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   render() {
-    return <router-view />
+    return <h1>测试</h1>
   }
 })

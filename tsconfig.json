@@ -11,7 +11,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "baseUrl": ".",
+    "baseUrl": "node_modules",
     "noImplicitAny": false,
     "resolveJsonModule": true,
     "paths": {
@@ -36,7 +36,8 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "build/*.ts"
+    "build/*.ts",
+    "electron/**/*.ts"
   ],
   "exclude": [
     "node_modules"
