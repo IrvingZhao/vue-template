@@ -26,7 +26,6 @@ module.exports = {
     ],
     'no-unused-vars': ['off', { args: 'after-used' }],
     '@typescript-eslint/no-unused-vars': ['off', { args: 'after-used' }],
-    '@typescript-eslint/no-unused-vars-experimental': ['error', { ignoreArgsIfArgsAfterAreUsed: true }],
     'no-bitwise': ['error', { int32Hint: true }]
   },
   settings: {},
