@@ -1,10 +1,13 @@
-// 编译 electron index 和 preload 使用
 import { readdirSync } from 'fs'
 import { resolve } from 'path'
 import commonjs from '@rollup/plugin-commonjs'
 import typescriptPlugin from '@rollup/plugin-typescript'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import copy from 'rollup-plugin-copy'
+
+const sourcePath = 'electron' // 源码目录
+const distPath = 'dist-electron' // 编译后目录
+const external = ['electron'] // 不引入编译，直接改为require的import
 
 const plugins = [
   typescriptPlugin({
@@ -28,15 +31,13 @@ const plugins = [
   nodeResolve(),
   copy({
     targets: [
-      { src: 'env', dest: 'dist-electron' },
-      { src: 'electron/devtools', dest: 'dist-electron' }
+      { src: 'env', dest: distPath },
+      { src: 'electron/devtools', dest: distPath }
     ]
   })
 ]
 
-const external = ['electron']
-
-const workerPath = 'electron/worker'
+const workerPath = `${sourcePath}/worker`
 const workerDir = resolve(__dirname, workerPath)
 const workerFiles = readdirSync(workerDir)
 const workerBuildConfig = workerFiles
@@ -45,7 +46,7 @@ const workerBuildConfig = workerFiles
     return {
       input: `${workerPath}/${item}`,
       output: {
-        file: `dist-electron/worker/${item}.js`,
+        file: `${distPath}/worker/${item}.js`,
         format: 'cjs'
       },
       plugins,
@@ -56,18 +57,18 @@ const workerBuildConfig = workerFiles
 export default [
   ...workerBuildConfig,
   {
-    input: 'electron/index.ts',
+    input: `${sourcePath}/index.ts`,
     output: {
-      file: 'dist-electron/index.js',
+      file: `${distPath}/index.js`,
       format: 'cjs'
     },
     plugins,
     external
   },
   {
-    input: 'electron/preload.ts',
+    input: `${sourcePath}/preload.ts`,
     output: {
-      file: 'dist-electron/preload.js',
+      file: `${distPath}/preload.js`,
       format: 'cjs'
     },
     plugins,
