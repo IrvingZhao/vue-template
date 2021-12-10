@@ -37,41 +37,39 @@ const plugins = [
   })
 ]
 
-const workerPath = `${sourcePath}/worker`
-const workerDir = resolve(__dirname, workerPath)
-const workerFiles = readdirSync(workerDir)
-const workerBuildConfig = workerFiles
-  .filter((item) => item !== 'index.ts')
-  .map((item) => {
-    return {
-      input: `${workerPath}/${item}`,
-      output: {
-        file: `${distPath}/worker/${item}.js`,
-        format: 'cjs'
-      },
-      plugins,
-      external
-    }
-  })
-
-export default [
-  ...workerBuildConfig,
+const entryPath = [
   {
-    input: `${sourcePath}/index.ts`,
-    output: {
-      file: `${distPath}/index.js`,
-      format: 'cjs'
-    },
-    plugins,
-    external
+    path: ''
   },
   {
-    input: `${sourcePath}/preload.ts`,
-    output: {
-      file: `${distPath}/preload.js`,
-      format: 'cjs'
-    },
-    plugins,
-    external
+    path: 'worker',
+    exclude: /index.ts/
   }
 ]
+
+export default entryPath
+  .map((item) => {
+    return {
+      read: item,
+      files: readdirSync(resolve(__dirname, sourcePath, item.path), { withFileTypes: true })
+    }
+  })
+  .map((item) => {
+    const basePath = item.read.path && `${item.read.path}/`
+    return item.files
+      .filter((dir) => dir.isFile() && !item.read.exclude?.test(dir.name))
+      .map((dir) => dir.name)
+      .map((fileName) => {
+        const output = `${fileName.substring(0, fileName.lastIndexOf('.'))}.js`
+        return {
+          input: `${sourcePath}/${basePath}${fileName}`,
+          output: {
+            file: `${distPath}/${basePath}${output}`,
+            format: 'cjs'
+          },
+          plugins,
+          external
+        }
+      })
+  })
+  .flat()
