@@ -1,7 +1,8 @@
 import path from 'path'
-import { app, BrowserWindowConstructorOptions } from 'electron'
+import { app, BrowserWindowConstructorOptions, protocol } from 'electron'
 import getEnv from './config/env'
 import initWindows from './windows'
+import registerProtocols from './protocol'
 
 const env = getEnv()
 
@@ -26,6 +27,7 @@ const electronBaseOption: BrowserWindowConstructorOptions = {
 
 app.whenReady().then(() => {
   initWindows(basePath, electronBaseOption)
+  registerProtocols(protocol)
   // session.defaultSession.loadExtension(path.resolve(__dirname, './devtools'), { allowFileAccess: true })
   // registerUWFile()
 })
